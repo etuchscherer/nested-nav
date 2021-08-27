@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './screens/home';
+import ClasslistScreen from './screens/classlist';
+import PhotosScreen from './screens/photos';
+import BottomTab from './navigation/bottom-tab';
+import MenuScreen from './screens/menu';
+import ProfileVisitsScreen from './screens/profile-visits';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <BottomTab.Navigator>
+        <BottomTab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <BottomTab.Screen name="Classlist" component={ClasslistScreen} />
+        <BottomTab.Screen name="Photos" component={PhotosScreen} />
+        <BottomTab.Screen name="ProfileVisits" component={ProfileVisitsScreen} />
+        <BottomTab.Screen name="Menu" component={MenuScreen} />
+      </BottomTab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
